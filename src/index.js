@@ -46,6 +46,6 @@ const container = document.getElementById("app");
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <App />
+    <App className="bg-dark"/>
   </React.StrictMode>
 );

@@ -4,14 +4,14 @@ import { Button } from "bootstrap";
 const Header = ({ blok }) => {
   return (
     <>
-    <div class="container d-flex flex-column text-center py-3 align-items-center" {...storyblokEditable(blok)}>
+    <div class="container d-flex flex-column bg-danger text-center py-3 align-items-center" {...storyblokEditable(blok)}>
     {/* Logo */}
     <div class="w-100 d-flex justify-content-center">
         <img src={blok.icon.filename} alt="Site Logo" class="img-fluid mb-3" style="max-width: 150px;" />
     </div>
 
     {/* Navbar (Fully Centered) */}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3 shadow-sm rounded w-100">
+    <nav class="navbar navbar-expand-lg bg-transparent mt-3 shadow-sm rounded w-100">
         <div class="container d-flex flex-column align-items-center">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>

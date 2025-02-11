@@ -17,7 +17,7 @@ const MainFooter = ({ blok }) => {
                 <div className="d-flex gap-2">
                     {logoItem.links.map((link) => (
                     <a key={link._uid} href={link.url.url} target="_blank" rel="noopener noreferrer">
-                        <img src={link.icon.filename} alt="Social Icon" className="w-5 h-5" style={{ width: "20px", height: "20px" }} />
+                        <img src={link.icon.filename} alt="Social Icon" className="w-5 h-5 social-icon" style={{ width: "20px", height: "20px" }} />
                     </a>
                     ))}
                 </div>

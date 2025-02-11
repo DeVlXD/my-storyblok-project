@@ -102,3 +102,62 @@
 .fade-anim {
   animation: fadeInUp 1s ease-out forwards;
 }
+
+body {
+  background: linear-gradient(to bottom, #FFFFFF 0%, #EBE9FB 25%, #FFFFFF 50%, #EBE9FB 75%, #FFFFFF 100%);
+}
+
+.social-icon {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+      width: 80px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .large-text {
+      font-size: 2.5rem !important; /* Adjust as needed */
+  }
+}
+@media (max-width: 576px) {
+  .large-text {
+      font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-container {
+      max-width: 85vw !important;
+  }
+}
+
+/* Increase horizontal padding on mobile */
+@media (max-width: 768px) {
+  .footer-container {
+      padding-left: 2%;
+      padding-right: 2%;
+  }
+}
+
+/* Reduce logo size on mobile */
+@media (max-width: 768px) {
+  .logo-img {
+      width: 120px; /* Adjust as needed */
+  }
+}
+
+/* Reduce text size of links in the second footer */
+.footer-link {
+  font-size: 0.85rem; /* Smaller text */
+}
+
+.footer-copyright {
+  font-size: 0.8rem; /* Smaller text */
+}
+
+.rich-text {
+  text-align: left;
+}

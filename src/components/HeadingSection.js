@@ -4,7 +4,7 @@ const HeadingSection = ({ blok }) => {
     console.log(blok);
   return (
     <>
-    <section className="container-fluid bg-light d-flex py-3 justify-content-center align-items-center py-5" {...storyblokEditable(blok)}>
+    <section className="container-fluid bg-transparent d-flex py-3 justify-content-center align-items-center py-5" {...storyblokEditable(blok)}>
         
         
         <div className="container text-center custom-container">
