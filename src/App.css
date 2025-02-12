@@ -161,3 +161,20 @@ body {
 .rich-text {
   text-align: left;
 }
+
+.mega-menu {
+  top: 100%;
+  left: 0;
+  width: 600px;
+  display: block;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Responsive: Make Mega Menu full-width on small screens */
+@media (max-width: 768px) {
+  .mega-menu {
+      width: 100%;
+      position: static;
+  }
+}
