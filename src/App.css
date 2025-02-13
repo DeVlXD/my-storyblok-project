@@ -178,3 +178,16 @@ body {
       position: static;
   }
 }
+
+/* Hide mega menu on mobile */
+@media (max-width: 991px) {
+  .mega-menu {
+    display: none !important; /* Hides the mega menu on mobile */
+    position: relative !important; /* Remove absolute positioning */
+    width: 100%; /* Full width inside the hamburger menu */
+  }
+
+  .nav-item.open .mega-menu {
+    display: block !important; /* Show menu when parent is active */
+  }
+}

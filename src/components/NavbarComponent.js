@@ -1,9 +1,30 @@
-import { storyblokEditable } from "@storyblok/react";
-import { useState } from "react";
+import { storyblokEditable, useStoryblokState } from "@storyblok/react";
+import { useState, useEffect } from "react";
 
 const NavbarComponent = ({ blok }) => {
+    // Ensure state updates work inside Storyblok Visual Editor
+    const updatedBlok = useStoryblokState(blok) || blok;
+
+    // Handle mobile menu state
     const [activeMenu, setActiveMenu] = useState(null);
-    console.log("Navbar Data:", blok);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Ensure window is only accessed in the browser
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const handleResize = () => setIsMobile(window.innerWidth < 992);
+            handleResize(); // Run on mount
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }
+    }, []);
+
+    // Toggle Mega Menu in Mobile
+    const toggleMenu = (link) => {
+        setActiveMenu((prev) => (prev === link ? null : link));
+    };
+
+    
     return (
         <>
             <section className="container-fluid bg-transparent py-3" {...storyblokEditable(blok)}>
@@ -82,7 +103,7 @@ const NavbarComponent = ({ blok }) => {
                                         top: "100%",  // Adjust based on navbar height
                                         left: "50%",  // Center it horizontally
                                         transform: "translateX(-50%)", // Adjust position for centering
-                                        width: "60vw", // Control width
+                                        width: "80vw", // Control width
                                         zIndex: 1000
                                     }}
                                     onMouseEnter={() => setActiveMenu(activeMenu)} // Prevent flicker
