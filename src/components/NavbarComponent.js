@@ -24,7 +24,7 @@ const NavbarComponent = ({ blok }) => {
         setActiveMenu((prev) => (prev === link ? null : link));
     };
 
-    
+
     return (
         <>
             <section className="container-fluid bg-transparent py-3" {...storyblokEditable(blok)}>
@@ -79,6 +79,7 @@ const NavbarComponent = ({ blok }) => {
                                 ))}
                             </ul>
                         </div> */}
+                        
 
                         {/* Navigation Links with Mega Menu */}
                         <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -93,6 +94,8 @@ const NavbarComponent = ({ blok }) => {
                                         <a className="nav-link" href={link.URL?.cached_url || "#"}>{link.text}</a>
                                     </li>
                                 ))}
+
+                                
                             </ul>
 
                             {/* Global Mega Menu (Positioned Absolute) */}
@@ -103,7 +106,7 @@ const NavbarComponent = ({ blok }) => {
                                         top: "100%",  // Adjust based on navbar height
                                         left: "50%",  // Center it horizontally
                                         transform: "translateX(-50%)", // Adjust position for centering
-                                        width: "80vw", // Control width
+                                        width: "67vw", // Control width
                                         zIndex: 1000
                                     }}
                                     onMouseEnter={() => setActiveMenu(activeMenu)} // Prevent flicker
@@ -111,20 +114,52 @@ const NavbarComponent = ({ blok }) => {
                                 >
                                     <div className="row">
                                         {activeMenu.megaMenuItem.map((sub, subIndex) => (
-                                            <div className="col-md-4" key={subIndex}>
+                                            <div className="col-md-4 d-flex flex-column" key={subIndex}>
                                                 <h6 className="text-dark fw-bold fs-5 mb-3">{sub.heading}</h6>
-                                                <ul className="list-unstyled">
+
+                                                {/* Flex container for submenu items */}
+                                                <div
+                                                    className="d-flex flex-wrap w-100"
+                                                    style={{ gap: "10px", justifyContent: "space-between" }}
+                                                >
                                                     {sub.items.map((item, itemIndex) => (
-                                                        <li key={itemIndex}>
-                                                            <a className="text-muted text-decoration-none" href={item.URL.cached_url}>
-                                                                {item.text}
-                                                            </a>
-                                                        </li>
+                                                        <div
+                                                            key={itemIndex}
+                                                            className="d-flex align-items-center"
+                                                            style={{ flex: "0 0 calc(50% - 5px)" }} // Ensures two per row with spacing
+                                                        >
+                                                            {/* Ensure item.icon exists before rendering */}
+                                                            {item.icon && (
+                                                                <img
+                                                                    src={item.icon.filename || item.icon}
+                                                                    alt={item.text}
+                                                                    className="me-2"
+                                                                    style={{ width: "40px", height: "40px" }}
+                                                                />
+                                                            )}
+                                                            <div>
+                                                                {/* Ensure item.text exists */}
+                                                                {item.text && (
+                                                                    <a
+                                                                        className="text-dark fw-semibold text-decoration-none d-block"
+                                                                        href={item.URL?.cached_url || "#"}
+                                                                    >
+                                                                        {item.text}
+                                                                    </a>
+                                                                )}
+                                                                {/* Ensure item.description exists */}
+                                                                {item.description && (
+                                                                    <p className="text-muted small mb-0">{item.description}</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
                                                     ))}
-                                                </ul>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
+
+
                                 </div>
                             )}
                         </div>

@@ -5,7 +5,7 @@ import { renderRichText } from "@storyblok/react";
 const MainFooter = ({ blok }) => {
     console.log(blok);
   return (
-    <footer className="bg-gray-900 text-white px-6 footer-container justify-content-center" {...storyblokEditable(blok)}>
+    <footer className="bg-gray-900 text-white px-6 footer-container justify-content-center purple-gradient" {...storyblokEditable(blok)}>
         <div className="container mx-auto my-10">
         <div className="row pt-5">
             {/* Logo Column */}

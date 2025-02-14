@@ -191,3 +191,10 @@ body {
     display: block !important; /* Show menu when parent is active */
   }
 }
+
+.purple-gradient {
+  background: radial-gradient(circle at bottom left, rgba(210, 89, 166, 0.6), transparent 40%), 
+            radial-gradient(circle at bottom right, rgba(90, 39, 231, 0.6), transparent 40%), 
+            #4e4383;
+}
+
